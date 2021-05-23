@@ -1,7 +1,0 @@
-{
-  "name": "mRad",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "angular"
-}
