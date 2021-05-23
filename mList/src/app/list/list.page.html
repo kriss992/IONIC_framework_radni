@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      List
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--<ion-list>-->
+    <div class="div_g" *ngFor="let item of items" (click)="alarm(item.id)">
+      <!--<ion-icon [name]="play" slot="start"></ion-icon>-->
+      <div class="div">
+        <div class="datum">
+          {{item.datum}}
+        </div>
+        <div class="kategorija">
+          {{item.kategorija}}
+        </div>
+        <div class="naslov">
+          {{item.naslov}}
+        </div>
+        <div class="div_zadnji">
+          <ion-text class="status">
+            Status: <span [style.color]="item.boja">{{item.status}}</span>
+          </ion-text>
+          <ion-text class="korisnik">
+            Korisnik: {{item.korisnik}}
+          </ion-text>
+            <!--<div class="status">
+              <ion-text color={{item.boja}}>
+                Status: {{item.status}}
+              </ion-text>
+            </div>
+            <div class="korisnik">
+              <ion-text>
+                Korisnik: {{item.korisnik}}
+              </ion-text>
+            </div>-->
+        </div>
+      </div>
+      <!--<div>
+        {{item.datum}} &nbsp;
+      </div>
+      <div>
+        {{item.naslov}} &nbsp;
+      </div>
+      <div>
+        Status: {{item.status}}  &nbsp;
+      </div>
+      <div>
+        Korisnik: {{item.korisnik}} {{item.note}} &nbsp;
+      </div>-->
+    </div>
+  <!--</ion-list>-->
+<!--{{odgovor}}-->
+</ion-content>
