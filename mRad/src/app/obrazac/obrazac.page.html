@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar>
+      <tr>
+          <td>
+            <ion-menu-toggle>
+              <ion-button fill="clear">
+                <ion-icon name="menu"></ion-icon>
+              </ion-button>
+            </ion-menu-toggle>
+          </td>
+          <td>
+            <ion-title>Obrazac prijave</ion-title>
+          </td>
+        </tr>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content>  
+  <h4>Prostor za slike:</h4>
+  <ion-slides>
+    <ion-slide *ngFor="let photo of photoService.photos; let in = index">
+      <img class="class-photo" [src]="photo.data"/>
+      <ion-icon class="close-icon" name="trash" (click)="photoService.klikBrisanje(in)"></ion-icon>
+    </ion-slide>
+  </ion-slides>
+        <ion-row class="class-gumbi-slika-row"> 
+        <ion-col class="class-gumbi-slika-col"> 
+          <ion-button size="large" (click)="photoService.takePicture(1)">
+            <ion-icon name="camera"></ion-icon>
+          </ion-button>
+        </ion-col>      
+        <ion-col class="class-gumbi-slika-col">
+          <ion-button size="large" (click)="photoService.takePicture(0)">
+            <ion-icon name="images"></ion-icon>
+          </ion-button>
+        </ion-col>      
+      </ion-row>   
+  <div *ngIf="sakrijMe">
+    <h1>Testni header</h1>
+  </div>   
+  <div class="class-tip-prijave">
+      <ion-item>
+          <ion-label>Kategorija prijave</ion-label>
+          <ion-select interface="popover" [(ngModel)]="tipPrijave" [selectedText]="selectcategory" 
+          (ionChange)="izabranaPrijava(tipPrijave);">
+            <ion-select-option value="Divlja odlagališta otpada">Divlja odlagališta otpada</ion-select-option>
+            <ion-select-option value="Držanje životinja">Držanje životinja</ion-select-option>
+            <ion-select-option value="Građevinska inspekcija">Građevinska inspekcija</ion-select-option>
+            <ion-select-option value="Javna rasvjeta">Javna rasvjeta</ion-select-option>
+            <ion-select-option value="Javno/prometne površine">Javno/prometne površine</ion-select-option>
+            <ion-select-option value="Odlaganje otpada">Odlaganje otpada</ion-select-option>
+            <ion-select-option value="Održavanje naselja">Održavanje naselja</ion-select-option>
+            <ion-select-option value="Parkiranje">Parkiranje</ion-select-option>
+            <ion-select-option value="Poljoprivredna zemljišta">Poljoprivredna zemljišta</ion-select-option>
+            <ion-select-option value="Zelene površine">Zelene površine</ion-select-option>
+          </ion-select>
+        </ion-item>
+  </div>
+  <div class="class-naslov-prijave">
+    <ion-item>
+      <ion-input #naslovInput (keyup.enter)="handleLogin()" placeholder="Naslov prijave" type="text" value="" 
+      [(ngModel)]="naslovTekst"></ion-input>
+    </ion-item>
+  </div>
+  <div class="class-tekst-prijave">
+    <ion-item>
+      <ion-textarea #tekstInput rows="6" type="notes" placeholder="Tekst prijave" 
+      type="text" value="" [(ngModel)]="sadrzajTekst"></ion-textarea>
+    </ion-item>
+  </div>
+  <div>
+    <ion-row class="class-gumbi-slika-row"> 
+      <ion-col class="class-gumbi-slika-col"> 
+       <h3>Dodajte lokaciju prijave</h3>
+      </ion-col>      
+      <ion-col class="class-gumbi-slika-col">
+        <ion-button size="large" (click)="lociraj()">
+          <ion-icon name="locate"></ion-icon>
+        </ion-button>
+      </ion-col>      
+    </ion-row>  
+  </div>
+  <div *ngIf="kartaSkrivena">
+    <div class="map-wrapper">
+      <div #map id="map"></div>
+    </div>
+    <div id="address">
+      <span>{{address}}</span>
+    </div>
+  </div>
+  <div *ngIf="porukaSkrivena" id="note"><span>{{poruka}}</span></div>
+  <div class="class-gumb-salji">
+    <ion-button size="default" color="danger" (click)="mreza()">POŠALJI
+      <ion-icon name="send"></ion-icon>
+    </ion-button>
+  </div>
+  <!--<div *ngFor="let item of odgovor;">  
+    {{item}}
+  </div>-->
+  <div>  
+    {{odgovor}}
+  </div>
+
+</ion-content>

@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+      <tr>
+          <td>
+            <ion-menu-toggle>
+              <ion-button fill="clear">
+                <ion-icon name="menu"></ion-icon>
+              </ion-button>
+            </ion-menu-toggle>
+          </td>
+          <td>
+            <ion-title>Popis prethodnih prijava</ion-title>
+          </td>
+        </tr>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--<ion-list>-->
+    <div *ngIf="nema_prijava" class="div_nema">
+      <ion-text class="div_nema_tekst">
+        Nemate poslanih prijava.
+      </ion-text>
+    </div>
+    <div *ngIf="ima_prijava">
+      <div class="div_g" *ngFor="let item of items" (click)="alarm(item.id)">
+        <!--<ion-icon [name]="play" slot="start"></ion-icon>-->
+        <div class="div">
+          <div class="datum">
+            {{item.datum}}
+          </div>
+          <div class="kategorija">
+            {{item.kategorija}}
+          </div>
+          <div class="naslov">
+            {{item.naslov}}
+          </div>
+          <div class="div_zadnji">
+            <ion-text class="status">
+              Status: <span [style.color]="item.boja">{{item.status}}</span>
+            </ion-text>
+            <ion-text class="korisnik">
+              Korisnik: {{item.korisnik}}
+            </ion-text>
+              <!--<div class="status">
+                <ion-text color={{item.boja}}>
+                  Status: {{item.status}}
+                </ion-text>
+              </div>
+              <div class="korisnik">
+                <ion-text>
+                  Korisnik: {{item.korisnik}}
+                </ion-text>
+              </div>-->
+          </div>
+          <div class="adresa">
+            {{item.adresa}}
+          </div>
+        </div>
+        <!--<div>
+          {{item.datum}} &nbsp;
+        </div>
+        <div>
+          {{item.naslov}} &nbsp;
+        </div>
+        <div>
+          Status: {{item.status}}  &nbsp;
+        </div>
+        <div>
+          Korisnik: {{item.korisnik}} {{item.note}} &nbsp;
+        </div>-->
+      </div>
+    </div>
+  <!--</ion-list>-->
+<!--{{odgovor}}-->
+</ion-content>

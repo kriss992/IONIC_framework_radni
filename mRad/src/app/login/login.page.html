@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <tr>
+      <td>
+        <ion-menu-toggle>
+          <ion-button fill="clear">
+            <ion-icon name="menu"></ion-icon>
+          </ion-button>
+        </ion-menu-toggle>
+      </td>
+      <td>
+        <ion-title text-align: center>Login</ion-title>
+      </td>
+    </tr>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="korisnicko_ime_div">
+    <ion-item>
+      <ion-input #input_kor text-center class="korisnicko_ime_tekst" placeholder="Korisničko ime" 
+      type="text" value="" [(ngModel)]="korisnickoimeTekst" (keyup.enter)="handleLogin(1)">
+    </ion-input>
+    </ion-item>
+  </div>
+  <div class="lozinka_div">
+    <ion-item>
+      <ion-input #input_pas text-center class="lozinka_tekst" placeholder="Lozinka" type="password" value="" 
+      [(ngModel)]="lozinkaTekst" (keyup.enter)="handleLogin(2)">
+      </ion-input>
+    </ion-item>
+  </div>
+  <div class="login_gumb_div">
+    <ion-button color="primary" class="login_gumb" (click)="login()"> 
+      PRIJAVA
+    </ion-button>
+  </div>
+  <div class="anon_gumb_div">
+    <ion-button color="secondary" class="anon_gumb" (click)="anon()">
+      ANONIMNA PRIJAVA
+    </ion-button>
+  </div>
+  <div class="reg_gumb_div">
+    <ion-button color="tertiary" class="reg_gumb" (click)="reg()">
+      REGISTRACIJA
+    </ion-button>
+  </div>  
+</ion-content>
