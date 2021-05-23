@@ -1,7 +1,0 @@
-{
-  "name": "mTest2",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "angular"
-}
