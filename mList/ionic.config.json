@@ -1,0 +1,7 @@
+{
+  "name": "mList",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
