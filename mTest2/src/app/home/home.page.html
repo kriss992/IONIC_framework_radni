@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Moje mreže test
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="class-gumb-salji">
+    <ion-button size="default" color="danger" (click)="mreza_get()">POŠALJI GET
+      <ion-icon name="send"></ion-icon>
+    </ion-button>
+    <ion-button size="default" color="danger" (click)="mreza_post()">POŠALJI POST
+      <ion-icon name="send"></ion-icon>
+    </ion-button>
+  </div>
+  <div>
+    {{odgovor}}
+  </div>
+</ion-content>
